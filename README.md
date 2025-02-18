@@ -94,3 +94,15 @@ This project is a simple Student Management System built with Laravel 11. It all
 11. **Access the Application:**
     Open your browser and go to http://127.0.0.1:8000 to view the application.
     You can also access the Student Management System at http://localhost/sms/students.
+
+### Default Admin User
+
+To log in as an admin, you can use the following credentials:
+
+- **Username:** admin
+- **Password:** 123456
+
+You can insert the admin user into the database with the following SQL command:
+```sql
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'admin', 'admin', 'admin@gmail.com', NULL, '$2y$12$69WK9yADCLccBGcZNNQMJ.ChHF8xi0PI7sK8uVSS0NeXDcZf9OBt6', '', NULL, NULL);
+```
