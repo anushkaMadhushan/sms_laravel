@@ -29,16 +29,26 @@ class CourseController extends Controller
     }
 
     // Show edit form
-    public function edit(Course $course)
+
+    public function edit($id)
     {
+        $course = Course::findOrFail($id);
         return view('courses.edit', compact('course'));
     }
 
+
+
     // Update course
-    public function update(Request $request, Course $course)
+
+    public function update(Request $request, $id)
     {
+        // Validate the request
         $request->validate(['name' => 'required|string|max:255']);
-        $course->update(['name' => $request->name]);
+
+        $course = Course::findOrFail($id);
+
+        $course->update($request->only(['name']));
+
         return redirect()->route('courses.index')->with('success', 'Course updated successfully.');
     }
 
