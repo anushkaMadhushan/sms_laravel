@@ -29,15 +29,15 @@
              </a>
              <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                  <li>
-                     <a href="{{ url('panel/course') }}">
+                     <a href="{{ route('courses.index') }}">
                          <i class="bi bi-circle"></i><span>Course</span>
                      </a>
                  </li>
-               
+
              </ul>
          </li><!-- End Forms Nav -->
 
-        
+
 
      </ul>
 

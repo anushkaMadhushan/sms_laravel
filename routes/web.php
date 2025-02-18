@@ -16,8 +16,13 @@ Route::get('panel/dashboard', [DashboardController::class, 'dashboard'])->name('
 //     return view('welcome');
 // });
 
-Route::get('/courses', [CourseController::class, 'course_list']);
-Route::post('/courses', [CourseController::class, 'create_course']);
+
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
+Route::post('/courses', [CourseController::class, 'store'])->name('courses.store');
+Route::get('/courses/{id}/edit', [CourseController::class, 'edit'])->name('courses.edit');
+Route::put('/courses/{id}', [CourseController::class, 'update'])->name('courses.update');
+Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('courses.destroy');
 
 
 

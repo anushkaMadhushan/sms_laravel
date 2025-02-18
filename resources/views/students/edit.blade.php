@@ -15,17 +15,33 @@
         @csrf
         @method('PUT')
         <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control" value="{{ $student->name }}" required>
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" id="name"
+                value="{{ old('name', $student->name) }}" required>
         </div>
+
         <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" value="{{ $student->email }}" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" id="email"
+                value="{{ old('email', $student->email) }}" required>
         </div>
-        {{-- <div class="form-group">
-        <label>Phone</label>
-        <input type="text" name="phone" class="form-control" value="{{ $student->phone }}" required>
-    </div> --}}
-        <button type="submit" class="btn btn-success">Update</button>
+
+        <!-- Checkbox for Courses -->
+        <div class="form-group">
+            <label>Courses</label>
+            <div class="row">
+                @foreach ($courses as $course)
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input type="checkbox" name="courses[]" value="{{ $course->id }}" class="form-check-input"
+                                id="course_{{ $course->id }}" @if (in_array($course->id, old('courses', $student->courses->pluck('id')->toArray()))) checked @endif>
+                            <label class="form-check-label" for="course_{{ $course->id }}">{{ $course->name }}</label>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Save</button>
     </form>
 @endsection
