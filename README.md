@@ -93,3 +93,4 @@ This project is a simple Student Management System built with Laravel 11. It all
 
 11. **Access the Application:**
     Open your browser and go to http://127.0.0.1:8000 to view the application.
+    You can also access the Student Management System at http://localhost/sms/students.

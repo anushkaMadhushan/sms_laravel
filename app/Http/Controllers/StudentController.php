@@ -40,7 +40,6 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required',
         ]);
 
         Student::create($request->all());
@@ -62,7 +61,6 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'phone' => 'required',
         ]);
 
         $student = Student::findOrFail($id);
