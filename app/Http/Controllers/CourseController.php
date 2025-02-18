@@ -36,13 +36,10 @@ class CourseController extends Controller
         return view('courses.edit', compact('course'));
     }
 
-
-
     // Update course
 
     public function update(Request $request, $id)
     {
-        // Validate the request
         $request->validate(['name' => 'required|string|max:255']);
 
         $course = Course::findOrFail($id);
@@ -53,8 +50,9 @@ class CourseController extends Controller
     }
 
     // Delete course
-    public function destroy(Course $course)
+    public function destroy($id)
     {
+        $course = Course::findOrFail($id);
         $course->delete();
         return redirect()->route('courses.index')->with('success', 'Course deleted successfully.');
     }
